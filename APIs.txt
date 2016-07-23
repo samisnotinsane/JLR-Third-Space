@@ -1,0 +1,5 @@
+APIs
+Twilio text notification
+Azure Cognitive Face Detection
+Bing Speech API (Voice Detection)
+Language Understanding Intelligence Service (Cortana)
