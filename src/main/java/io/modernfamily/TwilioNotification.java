@@ -10,6 +10,10 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
+/******************************************
+ * Text message based communications api  *
+ ******************************************/
+
 public class TwilioNotification {
 
     // Find your Account Sid and Token at twilio.com/console
@@ -54,6 +58,6 @@ public class TwilioNotification {
         } catch (TwilioRestException e) {
             System.out.println("[System exception] Could not use TwilioNotification.notify() to send text alert!");
         }
-        System.out.println("Message signature (id): "+message.getSid());
+        System.out.println("[Success] Message signature (id): "+message.getSid());
     }
 }

@@ -16,5 +16,11 @@
             <artifactId>twilio-java-sdk</artifactId>
             <version>(6.0,6.9)</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.sarxos</groupId>
+            <artifactId>webcam-capture</artifactId>
+            <version>0.3.10</version>
+        </dependency>
     </dependencies>
 </project>
