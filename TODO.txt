@@ -1,0 +1,4 @@
+1. Twilio text notification api (D)
+2. Capture camera image
+3. Run cognitive face detection api on captured image
+4. Conversational voice assistant
