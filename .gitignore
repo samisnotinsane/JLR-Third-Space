@@ -1,6 +1,8 @@
 .gitignore
 TODO.txt
 face.png
+face1.png
+target/classes/config.properties
 JLR-Modern-Family.iml
 .idea/artifacts/
 .idea/compiler.xml

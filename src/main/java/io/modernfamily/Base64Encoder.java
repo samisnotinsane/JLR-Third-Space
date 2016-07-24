@@ -52,27 +52,32 @@ public class Base64Encoder {
         return image;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println("[Encoding image...]");
-
-        // Load image file
-        BufferedImage img = null;
-        try {
-            if(img == null)
-                System.out.println("[img==null]");
-            img = ImageIO.read(new File("face.png"));
-//            if(img != null)
-            System.out.println("[img!=null]");
-        } catch (IOException e) {
-            System.out.println("[System exception] could not load image!");
-        }
-
-        String encodedImage = encode(img);
-        System.out.println(encodedImage+"\n\n[Image successfully encoded]\n\n");
-
-        System.out.println("[Decoding image...]");
-        BufferedImage decImage = decode(encodedImage);
-        System.out.println("\n\n[Image successfully decoded]");
+    public static byte[] toByteArray(BufferedImage buffImage) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(buffImage, "png", baos);
+        return baos.toByteArray();
     }
+
+//    public static void main(String[] args) {
+//        System.out.println("[Encoding image...]");
+//
+//        // Load image file
+//        BufferedImage img = null;
+//        try {
+//            if(img == null)
+//                System.out.println("[img==null]");
+//            img = ImageIO.read(new File("face.png"));
+////            if(img != null)
+//            System.out.println("[img!=null]");
+//        } catch (IOException e) {
+//            System.out.println("[System exception] could not load image!");
+//        }
+//
+//        String encodedImage = encode(img);
+//        System.out.println(encodedImage+"\n\n[Image successfully encoded]\n\n");
+//
+//        System.out.println("[Decoding image...]");
+//        BufferedImage decImage = decode(encodedImage);
+//        System.out.println("\n\n[Image successfully decoded]");
+//    }
 }

@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class CaptureFacial {
 
-    public static void capture() throws IOException {
+    public static void capture(String filename) throws IOException {
 //        Webcam webcam = Webcam.getDefault();
 //        webcam.open();
 //        ImageIO.write(webcam.getImage(), "PNG", new File("hello-world.png")); // (DEPRECATED)
@@ -28,11 +28,24 @@ public class CaptureFacial {
         BufferedImage image = webcam.getImage();
 
         // save image to PNG file
-        ImageIO.write(image, "PNG", new File("face.png"));
+        ImageIO.write(image, "PNG", new File(filename));
     }
 
+    public static BufferedImage open(String filename) {
+
+        // Load image file
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File(filename));
+        } catch (IOException e) {
+            System.out.println("[System exception] could not open image!");
+        }
+        return img;
+    }
+
+
     public static void main(String[] args) {
-        try {capture(); System.out.println("[Success] Image saved as 'face.png' in root dir.");}
+        try {capture("face.png"); System.out.println("[Success] Image saved as 'face.png' in root dir.");}
         catch (IOException e) {System.out.println("[System exception] Failed to capture image from webcam!");}
     }
 
