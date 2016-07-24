@@ -16,7 +16,8 @@ public class Launcher {
         /***************************************************
          * Demonstrates facial recognition authentication  *
          ***************************************************/
-        System.out.println("[INITIALISING SYSTEM] Please wait...\n\n");
+        System.out.println("[INITIALISING SYSTEM] Please wait...\n");
+        System.out.println("[PERFORMING FACIAL RECOGNITION] Please face the camera.\n\n");
         // Initialise identity (of stored face) to get first faceId
         String storedFaceId = detect("face.png");
         System.out.println("Authenticated faceId: " + storedFaceId);
@@ -33,19 +34,24 @@ public class Launcher {
 
         // Compare two faceId using Verify api
         boolean authenticated = FaceApi.verify(storedFaceId, capturedFaceId);
-        if(authenticated)
-            System.out.println("[SUCCESS] Welcome, Sam.");
-        else
-            System.out.println("[FAIL] Access denied.");
+        if(authenticated) {
+            System.out.println("\n\n[SUCCESS] Welcome, Sam.\n\n");
+
+            /*******************************************
+             * Demonstrates text message notification  *
+             *******************************************/
+
+            String msgBody = "Sam is en route to pick up Jenny. Please see http://bit.ly/29A4DdD for"+
+                    "more details.";
+            TwilioNotification.notify(TwilioNotification.TO_NUM, msgBody);
+            System.out.println("\n" +
+                    "\n[SUCCESS] Text notification was sent.");
+        }
+
+        else {
+            System.out.println("\n\n[FAIL] Access denied.\n\n");
+        }
 
 
-        /*******************************************
-         * Demonstrates text message notification  *
-         *******************************************/
-
-        String msgBody = "Sam is en route to pick up Jenny. Please see http://bit.ly/29A4DdD for"+
-                "more details.";
-        TwilioNotification.notify(TwilioNotification.TO_NUM, msgBody);
-        System.out.println("[SUCCESS] Notification was sent.");
     }
 }

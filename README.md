@@ -1,5 +1,7 @@
-# JLR-Modern-Family
-Jaguar Land Rover Developer Challenge 2016
+# 3rdSpace
+![alt text](https://github.com/starfighter-ix/JLR-Modern-Family/resources/3rdSpace.png "3rdSpace")
+Designing the in-car productivity platform of the future.
+Entree: [Jaguar Land Rover Developer Challenge 2016] (http://jlrdevchallenge.com)
 
 * Features
  * 1. Twilio text notification api
