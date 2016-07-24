@@ -175,7 +175,7 @@ public class FaceApi {
         // Compare two faceId using Verify api
         boolean authenticated = verify(storedFaceId, capturedFaceId);
         if(authenticated)
-            System.out.println("Welcome, Sameen.");
+            System.out.println("Welcome, Sam.");
         else
             System.out.println("Access denied.");
 

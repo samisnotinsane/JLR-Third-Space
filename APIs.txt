@@ -21,3 +21,7 @@ Language Understanding Intelligence Service (Cortana)
 curl -v -X POST "https://api.projectoxford.ai/speech/v0/internalIssueToken"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: 3558681673d94fd9a6e6a5fc72f65108"
+
+thirdSpace app secret password: 3DYk1u5mgAkb37MWVHmxfqQ
+client-id: c827260e-136f-4da4-b67c-91219f802e77
+UUID:86A07234-2357-4DED-85AB-BF0CDE9241D0
