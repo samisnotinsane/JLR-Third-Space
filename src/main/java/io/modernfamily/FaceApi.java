@@ -89,13 +89,14 @@ public class FaceApi {
 
 //        JSONObject obj = new JSONObject(jsonArray);
 //        String n = obj.getJSONObject("face").getString("faceId");
-        System.out.println("faceId = " + faceID);
+//        System.out.println("faceId = " + faceID);
 
         return faceID;
     }
 
-    public static void verify(String strA, String strB) {
+    public static boolean verify(String strA, String strB) {
 
+        String result = "";
         HttpClient httpclient = HttpClients.createDefault();
 
         try
@@ -121,6 +122,7 @@ public class FaceApi {
 
             if (entity != null)
             {
+                result = EntityUtils.toString(entity);
                 System.out.println(EntityUtils.toString(entity));
             }
         }
@@ -129,23 +131,50 @@ public class FaceApi {
             System.out.println(e.getMessage());
         }
 
+        String isIdentical = "";
+        String confidence = "";
+        System.out.println("result*** = = "+ result);
+
+        // Parse JSON results
+//        JSONArray jsonArray = new JSONArray(result);
+//        isIdentical = jsonArray.getJSONObject(0).getString("isIdentical");
+//        confidence = jsonArray.getJSONObject(1).getString("confidence");
+
+        JSONObject obj = new JSONObject(result);
+
+//        System.out.println("obj.toString = "+obj.toString());
+        boolean n = obj.getBoolean("isIdentical");
+        System.out.println("isIdentical="+n);
+        double m = obj.getDouble("confidence");
+        System.out.println("isIdentical = " + n + ", confidence = "+ m);
+
+
+        if (isIdentical.equals("true") || m > 0.65)
+            return true;
+        else
+            return false;
     }
 
     public static void main(String[] args)
     {
-
         // Initialise identity (of stored face) to get first faceId
-        System.out.println(detect("face.png"));
+        String storedFaceId = detect("face.png");
+        System.out.println("Authenticated faceId: " + storedFaceId);
 
         // Take new image, run recognition on it and get new faceId
         try {
-            CaptureFacial.capture("face1.png");
+            CaptureFacial.store("face1.png");
         } catch (IOException e) {
-            System.out.println("[System exception] Failed to capture image for face detection");
+            System.out.println("[System exception] Failed to store image for face detection");
         }
-        System.out.println(detect("face1.png"));
-//        verify();
+
+        String capturedFaceId = detect("face1.png");
+        System.out.println("Attempted login faceId: " + capturedFaceId);
+
         // Compare two faceId using Verify api
+        boolean authenticated = verify(storedFaceId, capturedFaceId);
+        if(authenticated)
+            System.out.println("Welcome, Sameen.");
 
     }
 

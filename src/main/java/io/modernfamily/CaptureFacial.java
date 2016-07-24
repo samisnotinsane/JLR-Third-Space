@@ -10,12 +10,12 @@ import java.io.IOException;
 /*************************************************
  * Created by sameenislam on 23/07/2016.         *
  * Uses library: http://webcam-capture.sarxos.pl *
- * to capture image from webcam                  *
+ * to store image from webcam                  *
  *************************************************/
 
 public class CaptureFacial {
 
-    public static void capture(String filename) throws IOException {
+    public static void store(String filename) throws IOException {
 //        Webcam webcam = Webcam.getDefault();
 //        webcam.open();
 //        ImageIO.write(webcam.getImage(), "PNG", new File("hello-world.png")); // (DEPRECATED)
@@ -45,8 +45,9 @@ public class CaptureFacial {
 
 
     public static void main(String[] args) {
-        try {capture("face.png"); System.out.println("[Success] Image saved as 'face.png' in root dir.");}
-        catch (IOException e) {System.out.println("[System exception] Failed to capture image from webcam!");}
+        try {
+            store("face.png"); System.out.println("[Success] Image saved as 'face.png' in root dir.");}
+        catch (IOException e) {System.out.println("[System exception] Failed to store image from webcam!");}
     }
 
 }
