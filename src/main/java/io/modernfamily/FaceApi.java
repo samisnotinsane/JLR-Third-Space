@@ -133,7 +133,7 @@ public class FaceApi {
 
         String isIdentical = "";
         String confidence = "";
-        System.out.println("result*** = = "+ result);
+//        System.out.println("result*** = = "+ result);
 
         // Parse JSON results
 //        JSONArray jsonArray = new JSONArray(result);
@@ -144,9 +144,10 @@ public class FaceApi {
 
 //        System.out.println("obj.toString = "+obj.toString());
         boolean n = obj.getBoolean("isIdentical");
-        System.out.println("isIdentical="+n);
+//        System.out.println("isIdentical="+n);
         double m = obj.getDouble("confidence");
-        System.out.println("isIdentical = " + n + ", confidence = "+ m);
+        System.out.println("confidence="+m);
+//        System.out.println("isIdentical = " + n + ", confidence = "+ m);
 
 
         if (isIdentical.equals("true") || m > 0.65)
@@ -175,6 +176,8 @@ public class FaceApi {
         boolean authenticated = verify(storedFaceId, capturedFaceId);
         if(authenticated)
             System.out.println("Welcome, Sameen.");
+        else
+            System.out.println("Access denied.");
 
     }
 

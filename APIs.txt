@@ -16,3 +16,8 @@ Language Understanding Intelligence Service (Cortana)
 		"faceAttributes":{"gender":"male"}
 	}
 ]
+
+
+curl -v -X POST "https://api.projectoxford.ai/speech/v0/internalIssueToken"
+-H "Content-Type: application/json"
+-H "Ocp-Apim-Subscription-Key: 3558681673d94fd9a6e6a5fc72f65108"
