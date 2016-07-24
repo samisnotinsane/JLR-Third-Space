@@ -3,3 +3,16 @@ Twilio text notification
 Azure Cognitive Face Detection
 Bing Speech API (Voice Detection)
 Language Understanding Intelligence Service (Cortana)
+
+
+
+[{"faceId":"9c6b9792-3d73-48fe-9527-b9adccdbbb13","faceRectangle":{"top":37,"left":56,"width":72,"height":72},"faceAttributes":{"gender":"male"}}]
+
+
+[
+	{
+		"faceId":"86792c91-e70c-4914-8825-4a2760c5cc82",
+		"faceRectangle":{"top":50,"left":41,"width":88,"height":88},
+		"faceAttributes":{"gender":"male"}
+	}
+]
