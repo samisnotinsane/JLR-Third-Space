@@ -9,13 +9,14 @@ import static io.modernfamily.FaceApi.detect;
  * For demonstrating apis.
  */
 public class Launcher {
+
     public static void main(String[] args) {
 
 
         /***************************************************
          * Demonstrates facial recognition authentication  *
          ***************************************************/
-
+        System.out.println("[INITIALISING SYSTEM] Please wait...\n\n");
         // Initialise identity (of stored face) to get first faceId
         String storedFaceId = detect("face.png");
         System.out.println("Authenticated faceId: " + storedFaceId);
